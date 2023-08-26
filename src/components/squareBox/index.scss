@@ -1,0 +1,61 @@
+.square-wrapper {
+    height: calc(100vh - 40px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 10px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 1;
+
+    .grid {
+        width: 330px;
+        display: inline-flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .cell {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        border: 2px solid black;
+        background: radial-gradient(circle, rgba(113,81,95,1) 81%, rgba(0,0,0,1) 100%);
+
+        .ball {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #A5F12B;
+            position: absolute;
+            top: calc(50% - 15px);
+            animation: moveBall 3s infinite linear;
+            z-index: 1001;
+        }
+    }
+
+    .blinking {
+        animation: blink 1s infinite alternate;
+    }
+
+    @keyframes blink {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes moveBall {
+        from {
+            transform: translateX(30px);
+        }
+        to {
+            transform: translateX(150px);
+        }
+    }
+}
+
